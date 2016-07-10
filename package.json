@@ -1,6 +1,6 @@
 {
   "name": "collections.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A set of collections with good APIs for the javascript language",
   "main": "dist/index.js",
   "scripts": {
