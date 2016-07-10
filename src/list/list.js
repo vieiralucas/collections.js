@@ -1,9 +1,10 @@
 const head = Symbol('head');
 const tail = Symbol('tail');
+const length = Symbol('length');
 
 class List {
   constructor(...args) {
-    this.length = 0;
+    this[length] = 0;
     this[head] = new ListNode();
     this[tail] = null;
     args.forEach(el => this.add(el));
@@ -17,8 +18,12 @@ class List {
     return this[tail];
   }
 
+  get length() {
+    return this[length];
+  }
+
   add(el) {
-    this.length++;
+    this[length]++;
     if (this[head].isEmpty()) {
       this[head] = new ListNode(el);
       return this;

@@ -48,7 +48,7 @@ describe('List', function() {
     });
 
     it('should start with 0', function() {
-      const list = new List().length
+      const list = new List().length;
       expect(list).to.eql(0);
     });
   });
