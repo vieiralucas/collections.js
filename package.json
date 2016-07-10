@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-register src/**/*.test.js",
-    "test:watch": "mocha -w --compilers js:babel-register src/**/*.test.js"
+    "test:watch": "mocha -w --compilers js:babel-register src/**/*.test.js",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -29,10 +30,14 @@
   "homepage": "https://github.com/vieiralucas/collections.js#readme",
   "devDependencies": {
     "babel-cli": "^6.10.1",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.9.0",
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
-    "sinon": "^1.17.4"
+    "sinon": "^1.17.4",
+    "webpack": "^1.13.1"
   }
 }
