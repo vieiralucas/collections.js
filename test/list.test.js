@@ -1,4 +1,4 @@
-import List from './list';
+import { List } from '../src';
 import { expect } from 'chai';
 import sinon from 'sinon';
 

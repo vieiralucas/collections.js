@@ -4,8 +4,8 @@
   "description": "A set of collections with good APIs for the javascript language",
   "main": "dist/collections.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-register src/**/*.test.js",
-    "test:watch": "mocha -w --compilers js:babel-register src/**/*.test.js",
+    "test": "mocha --compilers js:babel-register test/**/*.test.js",
+    "test:watch": "mocha -w --compilers js:babel-register test/**/*.test.js",
     "build": "webpack"
   },
   "repository": {

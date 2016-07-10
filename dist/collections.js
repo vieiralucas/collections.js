@@ -49,6 +49,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.List = undefined;
 
 	var _list = __webpack_require__(1);
 
@@ -56,9 +57,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = {
-	  List: _list2.default
-	};
+	var List = exports.List = _list2.default;
 
 /***/ },
 /* 1 */

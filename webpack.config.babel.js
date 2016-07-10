@@ -1,7 +1,7 @@
 import path from 'path';
 
 export default {
-  entry: path.join(__dirname, 'src/main.js'),
+  entry: path.join(__dirname, 'src'),
   output: {
     path: __dirname,
     filename: 'dist/collections.js'
