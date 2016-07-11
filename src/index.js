@@ -1,3 +1,4 @@
-import list from './list';
+import _List from './list';
 
-export const List = list;
+export const List = _List;
+

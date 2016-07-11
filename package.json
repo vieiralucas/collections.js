@@ -2,11 +2,11 @@
   "name": "collections.js",
   "version": "0.0.3",
   "description": "A set of collections with good APIs for the javascript language",
-  "main": "dist/collections.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-register test/**/*.test.js",
     "test:watch": "mocha -w --compilers js:babel-register test/**/*.test.js",
-    "build": "webpack"
+    "prepublish": "rm -r dist && babel src --out-dir dist"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,6 @@
     "babel-register": "^6.9.0",
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
-    "sinon": "^1.17.4",
-    "webpack": "^1.13.1"
+    "sinon": "^1.17.4"
   }
 }
