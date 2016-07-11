@@ -60,9 +60,7 @@ class List {
       throw new Error('Expect parameter to be an instance of Array');
     }
 
-    const list = new List();
-    arr.forEach(a => list.add(a));
-    return list;
+    return new List(...arr);
   }
 }
 
