@@ -95,6 +95,12 @@ describe('List', function() {
       list.add(1);
       expect(list.toArray()).to.eql([1])
     });
+
+    it('should be chainable', function() {
+      const list = new List();
+      list.add(1).add(2);
+      expect(list.toArray()).to.eql([1, 2])
+    });
   });
 
   describe('.toArray()', function() {
