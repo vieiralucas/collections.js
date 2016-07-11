@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --compilers js:babel-register test/**/*.test.js",
     "test:watch": "mocha -w --compilers js:babel-register test/**/*.test.js",
-    "prepublish": "rm -r dist && babel src --out-dir dist"
+    "build": "babel src --out-dir dist",
+    "prepublish": "rm -r dist && npm run build"
   },
   "repository": {
     "type": "git",
