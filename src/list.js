@@ -7,7 +7,7 @@ class List {
     this[length] = 0;
     this[head] = new ListNode();
     this[tail] = null;
-    args.forEach(el => this.push(el));
+    args.forEach(this.push.bind(this));
   }
 
   get head() {
