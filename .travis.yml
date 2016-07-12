@@ -8,4 +8,4 @@ node_js:
   - "4"
 before_script:
   - npm install
-script: npm run test:coverage
+script: npm run test:coveralls
