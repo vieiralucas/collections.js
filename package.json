@@ -7,7 +7,7 @@
     "test": "mocha --compilers js:babel-register test/**/*.test.js",
     "test:watch": "mocha -w --compilers js:babel-register test/**/*.test.js",
     "build": "babel src --out-dir dist",
-    "prepublish": "rm -r dist && npm run build"
+    "prepublish": "rm -r dist; npm run build"
   },
   "repository": {
     "type": "git",
