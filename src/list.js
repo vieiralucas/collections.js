@@ -59,12 +59,7 @@ class List {
     }
 
     let arr = [];
-
-    while(list && !list[head].isEmpty()) {
-      arr.push(list[head].getValue());
-      list = list[tail];
-    }
-
+    list.forEach(el => arr.push(el));
     return arr;
   }
 
