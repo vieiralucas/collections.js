@@ -37,12 +37,10 @@ class List {
   }
 
   forEach(cb) {
-    let list = this;
     let i = 0;
 
-    while(list && !list[head].isEmpty()) {
-      cb(list[head].getValue(), i, this);
-      list = list[tail];
+    for (let el of this) {
+      cb(el, i, this);
       i++;
     }
 
@@ -59,7 +57,7 @@ class List {
   }
 
   toArray() {
-    return List.toArray(this)
+    return List.toArray(this);
   }
 
   static toArray(list) {
