@@ -49,6 +49,15 @@ class List {
     return this;
   }
 
+  *[Symbol.iterator]() {
+    let list = this;
+
+    while(list && !list[head].isEmpty()) {
+      yield list[head].getValue();
+      list = list[tail];
+    }
+  }
+
   toArray() {
     return List.toArray(this)
   }

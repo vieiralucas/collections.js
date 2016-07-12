@@ -127,6 +127,16 @@ describe('List', function() {
     });
   });
 
+  it('should be iterable', function() {
+    const list = new List(1, 2, 3, 4);
+    const arr = [];
+    for (let l of list) {
+      arr.push(l);
+    }
+
+    expect(arr).to.be.eql([1, 2, 3, 4]);
+  });
+
   describe('.toArray()', function() {
     it('should call List.toArray passing itself', function() {
       const spy = sinon.spy(List, 'toArray');
