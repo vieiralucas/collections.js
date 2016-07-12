@@ -83,22 +83,22 @@ describe('List', function() {
     });
   });
 
-  describe('.add()', function() {
+  describe('.push()', function() {
     it('should increment length', function() {
       const list = new List();
-      list.add(1);
+      list.push(1);
       expect(list.length).to.eql(1);
     });
 
-    it('should actually add an element to the list', function() {
+    it('should actually push an element to the list', function() {
       const list = new List();
-      list.add(1);
+      list.push(1);
       expect(list.toArray()).to.eql([1])
     });
 
     it('should be chainable', function() {
       const list = new List();
-      list.add(1).add(2);
+      list.push(1).push(2);
       expect(list.toArray()).to.eql([1, 2])
     });
   });

@@ -7,7 +7,7 @@ class List {
     this[length] = 0;
     this[head] = new ListNode();
     this[tail] = null;
-    args.forEach(el => this.add(el));
+    args.forEach(el => this.push(el));
   }
 
   get head() {
@@ -22,7 +22,7 @@ class List {
     return this[length];
   }
 
-  add(el) {
+  push(el) {
     this[length]++;
 
     if (this[head].isEmpty()) {
@@ -34,7 +34,7 @@ class List {
       this[tail] = new List();
     }
 
-    return this[tail].add(el);
+    return this[tail].push(el);
   }
 
   forEach(cb) {
@@ -51,7 +51,7 @@ class List {
   map(cb) {
     const newList = new List();
     this.forEach((el, i, list) => {
-      newList.add(cb(el, i, list));
+      newList.push(cb(el, i, list));
     });
 
     return newList;
