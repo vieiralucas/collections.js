@@ -24,6 +24,7 @@ class List {
 
   add(el) {
     this[length]++;
+
     if (this[head].isEmpty()) {
       this[head] = new ListNode(el);
       return this;
