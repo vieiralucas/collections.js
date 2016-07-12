@@ -48,6 +48,15 @@ class List {
     return this;
   }
 
+  map(cb) {
+    const newList = new List();
+    this.forEach((el, i, list) => {
+      newList.add(cb(el, i, list));
+    });
+
+    return newList;
+  }
+
   *[Symbol.iterator]() {
     let list = this;
 

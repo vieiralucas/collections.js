@@ -104,7 +104,7 @@ describe('List', function() {
   });
 
   describe('.forEach()', function() {
-    it('should call fn foreach element', function() {
+    it('should call fn for each element', function() {
       const iterFn = sinon.spy();
       const list = new List(1, 2);
       list.forEach(iterFn);
@@ -124,6 +124,30 @@ describe('List', function() {
       const list = new List(1, 2);
       const forEachReturnVal = list.forEach(iterFn);
       expect(forEachReturnVal).to.be.eql(list);
+    });
+  });
+
+  describe('.map()', function() {
+    it('should call fn for each element', function() {
+      const iterFn = sinon.spy();
+      const list = new List(1, 2);
+      list.map(iterFn);
+      sinon.assert.calledTwice(iterFn);
+    });
+
+    it('should call fn with (el, index, list)', function() {
+      const iterFn = sinon.spy();
+      const list = new List(1, 2);
+      list.map(iterFn);
+      expect(iterFn.getCall(0).args).to.be.eql([1, 0, list]);
+      expect(iterFn.getCall(1).args).to.be.eql([2, 1, list]);
+    });
+
+    it('should return a list with the return of each cb', function() {
+      const doubleFn = el => el * 2;
+      const list = new List(1, 2);
+      const doubleList = list.map(doubleFn);
+      expect(doubleList).to.be.eql(new List(2, 4));
     });
   });
 
