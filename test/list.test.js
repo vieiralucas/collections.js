@@ -151,6 +151,30 @@ describe('List', function() {
     });
   });
 
+  describe('.filter()', function() {
+    it('should call fn for each element', function() {
+      const iterFn = sinon.spy();
+      const list = new List(1, 2);
+      list.filter(iterFn);
+      sinon.assert.calledTwice(iterFn);
+    });
+
+    it('should call fn with (el, index, list)', function() {
+      const iterFn = sinon.spy();
+      const list = new List(1, 2);
+      list.filter(iterFn);
+      expect(iterFn.getCall(0).args).to.be.eql([1, 0, list]);
+      expect(iterFn.getCall(1).args).to.be.eql([2, 1, list]);
+    });
+
+    it('should return new list without filtered values', function() {
+      const isOdd = el => el % 2 !== 0;
+      const list = new List(1, 2);
+      const even = list.filter(isOdd);
+      expect(even).to.be.eql(new List(2));
+    });
+  });
+
   it('should be iterable', function() {
     const list = new List(1, 2, 3, 4);
     const arr = [];

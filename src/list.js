@@ -57,6 +57,17 @@ class List {
     return newList;
   }
 
+  filter(cb) {
+    const newList = new List();
+    this.forEach((el, i, list) => {
+      if (cb(el, i, list)) {
+        newList.push(el);
+      }
+    });
+
+    return newList;
+  }
+
   *[Symbol.iterator]() {
     let list = this;
 
