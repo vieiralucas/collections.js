@@ -103,6 +103,30 @@ describe('List', function() {
     });
   });
 
+  describe('.forEach()', function() {
+    it('should call fn foreach element', function() {
+      const iterFn = sinon.spy();
+      const list = new List(1, 2);
+      list.forEach(iterFn);
+      sinon.assert.calledTwice(iterFn);
+    });
+
+    it('should call fn with (el, index, list)', function() {
+      const iterFn = sinon.spy();
+      const list = new List(1, 2);
+      list.forEach(iterFn);
+      expect(iterFn.getCall(0).args).to.be.eql([1, 0, list]);
+      expect(iterFn.getCall(1).args).to.be.eql([2, 1, list]);
+    });
+
+    it('should return the list', function() {
+      const iterFn = sinon.spy();
+      const list = new List(1, 2);
+      const forEachReturnVal = list.forEach(iterFn);
+      expect(forEachReturnVal).to.be.eql(list);
+    });
+  });
+
   describe('.toArray()', function() {
     it('should call List.toArray passing itself', function() {
       const spy = sinon.spy(List, 'toArray');

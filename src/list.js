@@ -36,6 +36,19 @@ class List {
     return this[tail].add(el);
   }
 
+  forEach(cb) {
+    let list = this;
+    let i = 0;
+
+    while(list && !list[head].isEmpty()) {
+      cb(list[head].getValue(), i, this);
+      list = list[tail];
+      i++;
+    }
+
+    return this;
+  }
+
   toArray() {
     return List.toArray(this)
   }
