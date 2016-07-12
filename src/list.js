@@ -68,6 +68,16 @@ class List {
     return newList;
   }
 
+  reduce(cb, initialValue) {
+    let reduceVal = initialValue;
+
+    this.forEach((el, i, list) => {
+      reduceVal = cb(reduceVal, el, i, list);
+    });
+
+    return reduceVal;
+  }
+
   *[Symbol.iterator]() {
     let list = this;
 
