@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha --compilers js:babel-register test/**/*.test.js",
     "test:watch": "mocha -w --compilers js:babel-register test/**/*.test.js",
+    "test:coverage": "babel-node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
     "build": "babel src --out-dir dist",
     "prepublish": "rm -r dist; npm run build"
   },
@@ -38,6 +39,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.9.0",
     "chai": "^3.5.0",
+    "istanbul": "^1.0.0-alpha.2",
     "mocha": "^2.5.3",
     "sinon": "^1.17.4"
   }
