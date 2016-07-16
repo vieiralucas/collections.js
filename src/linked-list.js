@@ -2,10 +2,10 @@ const head = Symbol('head');
 const last = Symbol('last');
 const length = Symbol('length');
 
-class List {
+class LinkedList {
   constructor(...args) {
     this[length] = 0;
-    this[head] = new ListNode();
+    this[head] = new LinkedListNode();
     this[last] = this[head];
 
     args.forEach(this.push.bind(this));
@@ -26,7 +26,7 @@ class List {
   push(el) {
     // if list is empty
     if (this[length] === 0) {
-      this[head] = new ListNode(el);
+      this[head] = new LinkedListNode(el);
       this[last] = this[head];
       this[length]++;
 
@@ -35,7 +35,7 @@ class List {
 
     // if list has 1 element
     if (this[length] === 1) {
-      const newNode = new ListNode(el, this[head]);
+      const newNode = new LinkedListNode(el, this[head]);
       this[head].next = newNode;
       this[last] = newNode;
       this[length]++;
@@ -43,7 +43,7 @@ class List {
       return this;
     }
 
-    const newNode = new ListNode(el, this[last]);
+    const newNode = new LinkedListNode(el, this[last]);
     this[last].next = newNode;
     this[last] = newNode;
 
@@ -63,23 +63,23 @@ class List {
   }
 
   map(cb) {
-    const newList = new List();
+    const newLinkedList = new LinkedList();
     this.forEach((el, i, list) => {
-      newList.push(cb(el, i, list));
+      newLinkedList.push(cb(el, i, list));
     });
 
-    return newList;
+    return newLinkedList;
   }
 
   filter(cb) {
-    const newList = new List();
+    const newLinkedList = new LinkedList();
     this.forEach((el, i, list) => {
       if (cb(el, i, list)) {
-        newList.push(el);
+        newLinkedList.push(el);
       }
     });
 
-    return newList;
+    return newLinkedList;
   }
 
   reduce(cb, initialValue) {
@@ -102,12 +102,12 @@ class List {
   }
 
   toArray() {
-    return List.toArray(this);
+    return LinkedList.toArray(this);
   }
 
   static toArray(list) {
-    if (list.constructor.name !== 'List') {
-      throw new Error('Expect parameter to be an instance of List');
+    if (list.constructor.name !== 'LinkedList') {
+      throw new Error('Expect parameter to be an instance of LinkedList');
     }
 
     let arr = [];
@@ -120,11 +120,11 @@ class List {
       throw new Error('Expect parameter to be an instance of Array');
     }
 
-    return new List(...arr);
+    return new LinkedList(...arr);
   }
 }
 
-class ListNode {
+class LinkedListNode {
   constructor(el = null, prev = null, next = null) {
     this.prev = prev;
     this.el = el;
@@ -140,4 +140,4 @@ class ListNode {
   }
 }
 
-export default List;
+export default LinkedList;

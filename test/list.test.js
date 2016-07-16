@@ -65,21 +65,21 @@ describe('List', function() {
     });
   });
 
-  describe('.tail', function() {
+  describe('.last', function() {
     it('should be null if list is empty', function() {
       const list = new List();
-      expect(list.tail).to.be.null;
+      expect(list.last).to.be.null;
     });
 
-    it('should be null if list has a single element', function() {
+    it('should be equal to head if list has a single element', function() {
       const list = new List(1);
-      expect(list.tail).to.be.null;
+      expect(list.last).to.be.eql(list.head);
     });
 
-    it('should be a list without the head', function() {
+    it('should be the last element from list', function() {
       const list = new List(1, 2);
-      const tail = list.tail;
-      expect(tail).to.eql(new List(2));
+      const last = list.last;
+      expect(last).to.be.eql(2);
     });
   });
 
